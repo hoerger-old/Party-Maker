@@ -1,0 +1,17 @@
+{% extends "main.xhtml" %}
+
+{% block content %}
+
+{% if has_account %}
+<div class="info">Bereits angemeldet!</div>
+{% endif %}
+
+{% if expired %}
+<div class="error">Leider ist der Aktivierungsschlüssel bereits abgelaufen!</div>
+{% endif %}
+
+{% if success %}
+<div class="success">Aktivierung erfolgreich!</div>
+{% endif %}
+
+{% endblock %}

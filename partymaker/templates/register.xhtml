@@ -1,0 +1,18 @@
+{% extends "main.xhtml" %}
+
+{% block content %}
+<h2>Anmelden</h2>
+
+{% if form.errors %}
+    <div class="error">
+        Es traten Fehler auf!
+    </div>
+{% endif %}
+
+<form action="" method="post">{% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Registrieren">
+</form>
+{% endblock %}

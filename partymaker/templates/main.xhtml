@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="/static/blueprint/screen.css" type="text/css" media="screen, projection"/>
+    <link rel="stylesheet" href="/static/blueprint/print.css" type="text/css" media="print"/>
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="/static/blueprint/ie.css" type="text/css" media="screen, projection"/>
+    <![endif]-->
+    <link rel="stylesheet" href="/static/custom.css" type="text/css"/>
+    <title>Partymaker!</title>
+</head>
+
+<body>
+    <div class="container">
+          <div class="span-24">
+              {% block title %}<h1>Welcome to PartyMaker</h1>{% endblock %}
+          </div>
+    </div>
+    <div class="span-4 prepend-2 append-2 border">
+        {% block menu %}
+            <ul>
+                {% if user.is_authenticated %}
+                <li>Hallo, {{ user.username }}</li>
+                <li><a href="logout.html">Logout</a></li>
+                {% else %}
+                <li><a href="login.html">Login</a></li>
+                <li><a href="registration.html">Registrieren</a></li>
+                {% endif %}
+            </ul>
+        {% endblock %}
+    </div>
+    <div class="span-16 last">
+        {% block content %}
+            Content
+        {% endblock %}
+    </div>
+</body>
+</html>
