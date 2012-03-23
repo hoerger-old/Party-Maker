@@ -8,6 +8,7 @@ from django.contrib.auth import logout
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
+from django.conf import settings
 
 from main.forms import RegistrationForm
 from main.models import UserProfile
@@ -37,6 +38,7 @@ def register(request):
             email_text = "Hallo %s,\n du hast dich bei Party Maker regierstriert. Klicke auf den folgenden\
                 Link um deinen Account zu aktivieren.\n http://localhost:8000/validate/%s\n mfG das PartyMaker Team" % (
                     username, activation_key)
+                email_address=settings.REGISTRATION_EMAIL_ADDRESS
             send_mail(email_subject, email_text, "thehanse@gmail.com", [email])
             return HttpResponseRedirect('thanks.html')
     else: 
@@ -57,8 +59,3 @@ def validate(request, activation_key):
     user_account.is_active = True
     user_account.save()
     return render_to_response('validate.xhtml', {'success': True}, context_instance=RequestContext(request))
-
-def user_logout(request):
-    logout(request)
-    return HttpResponseRedirect('index.html')
-
