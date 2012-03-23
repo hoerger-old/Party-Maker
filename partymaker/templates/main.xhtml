@@ -22,10 +22,10 @@
             <ul>
                 {% if user.is_authenticated %}
                 <li>Hallo, {{ user.username }}</li>
-                <li><a href="logout.html">Logout</a></li>
+                <li><a href="user/logout.html">Logout</a></li>
                 {% else %}
-                <li><a href="login.html">Login</a></li>
-                <li><a href="registration.html">Registrieren</a></li>
+                <li><a href="user/login.html">Login</a></li>
+                <li><a href="user/registration.html">Registrieren</a></li>
                 {% endif %}
             </ul>
         {% endblock %}

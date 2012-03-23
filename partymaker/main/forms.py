@@ -3,10 +3,14 @@ from django import forms
 from django.contrib.auth.models import User
 
 class RegistrationForm(forms.Form):
-    username = forms.CharField(max_length=30) 
+    username = forms.RegexField(label="Benutzername",
+        help_text="Nur Buchstaben (keine Umlaute), Zahlen und '_' erlaubt.",
+        error_messages={'invalid': "Bitte einen gültigen Benutzernamen eingeben."},
+        regex=r'^\w+$',
+        max_length=30) 
     email = forms.EmailField()
-    password1 = forms.CharField(widget=forms.PasswordInput,min_length=5)
-    password2 = forms.CharField(widget=forms.PasswordInput,min_length=5)
+    password1 = forms.CharField(label="Passwort", widget=forms.PasswordInput,min_length=5)
+    password2 = forms.CharField(label="Passwortcheck", widget=forms.PasswordInput,min_length=5)
 
     def clean_username(self):
         username= self.cleaned_data["username"]

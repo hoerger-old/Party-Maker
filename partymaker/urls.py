@@ -6,16 +6,12 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^partymaker/', include('partymaker.foo.urls')),
 
     (r'^$', main.views.index),
     (r'^index.html$', main.views.index),
-    (r'^registration.html$', main.views.register),
-    (r'^thanks.html$', main.views.thanks),
-    (r'^validate/([0-9a-f]+)$', main.views.validate),
-    (r'^logout.html$',  'django.contrib.auth.views.logout', {"next_page": "index.xhtml"}),
-    (r'^login.html$', 'django.contrib.auth.views.login', {"template_name": "login.xhtml"}),
+    (r'^user/', include('partymaker.main.urls')),
+    (r'^p/', include('partymaker.profiles.urls')),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

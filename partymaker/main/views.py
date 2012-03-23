@@ -12,6 +12,7 @@ from django.conf import settings
 
 from main.forms import RegistrationForm
 from main.models import UserProfile
+
 def index(request):
     return render_to_response("index.xhtml")
 
@@ -38,7 +39,7 @@ def register(request):
             email_text = "Hallo %s,\n du hast dich bei Party Maker regierstriert. Klicke auf den folgenden\
                 Link um deinen Account zu aktivieren.\n http://localhost:8000/validate/%s\n mfG das PartyMaker Team" % (
                     username, activation_key)
-                email_address=settings.REGISTRATION_EMAIL_ADDRESS
+            email_address=settings.REGISTRATION_EMAIL_ADDRESS
             send_mail(email_subject, email_text, "thehanse@gmail.com", [email])
             return HttpResponseRedirect('thanks.html')
     else: 
