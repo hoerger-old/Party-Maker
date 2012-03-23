@@ -6,3 +6,9 @@ class Vote(models.Model):
     voted_for = models.ForeignKey(User, related_name="vote_voted_for")
     rating = models.PositiveIntegerField()
 
+    def __unicode__(self):
+        return unicode(self.user)
+
+    class Meta:
+        verbose_name = "Vote"
+        verbose_name_plural = "Votes"
