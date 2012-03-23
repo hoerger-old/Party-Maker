@@ -9,3 +9,4 @@ class UserField(models.Model):
     field_type = models.ForeignKey(UserFieldType)
     name = models.CharField(max_length=20)
     content = models.CharField(max_length=50)
+    position = models.PositiveIntegerField()

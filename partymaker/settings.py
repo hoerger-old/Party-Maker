@@ -94,6 +94,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
+    'gravatar',
     'partymaker.main',
     'partymaker.profiles',
     'partymaker.votes',
@@ -104,3 +105,4 @@ AUTH_PROFILE_MODULE = 'main.UserProfile'
 # custiom settings
 
 REGISTRATION_EMAIL_ADDRESS = 'thehanse@gmail.com'
+GRAVATAR_DEFAULT_IMAGE = "mm"

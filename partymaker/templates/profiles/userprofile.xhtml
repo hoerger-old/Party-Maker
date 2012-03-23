@@ -1,0 +1,20 @@
+{% extends "main.xhtml" %}
+
+{% load gravatar %}
+
+{% block content %}
+<div class="span-4">
+{% gravatar theuser 80 %}
+</div>
+<div class="span-12 last">
+    <h3>{{theuser.username}}</h3>
+    <p>{{theuser.first_name}} {{theuser.last_name}}</p>
+</div>
+<h3>Über {{theuser.username}}</h3>
+{{theuserprofile.bio}}
+<ul>
+{% for field in fields %}
+<li>{{field.name}}: {{field.content}}</li>
+{% endfor %}
+</ul>
+{% endblock %}

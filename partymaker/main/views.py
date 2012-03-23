@@ -1,7 +1,6 @@
 # -*- coding: utf8 -*-
 import datetime, random, sha
 from django.shortcuts import render_to_response, get_object_or_404
-from django.core.context_processors import csrf
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import logout
