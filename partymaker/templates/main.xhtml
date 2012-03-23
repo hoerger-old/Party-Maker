@@ -24,6 +24,9 @@
                     <li>Hallo, {{ user.username }}</li>
                     <li><a href="/p/{{user.username}}">Profil</a></li>
                     <li><a href="/user/logout">Logout</a></li>
+                {% if user.is_staff %}
+                    <li><a href="/admin/">Admin</a></li>
+                {% endif %}
                 {% else %}
                     <li><a href="/user/login">Login</a></li>
                     <li><a href="/user/registration">Registrieren</a></li>

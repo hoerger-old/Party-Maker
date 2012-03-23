@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     (r'^index$', main.views.index),
     (r'^user/', include('partymaker.main.urls')),
     (r'^p/', include('partymaker.profiles.urls')),
+    (r'^vote/', include('partymaker.votes.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
