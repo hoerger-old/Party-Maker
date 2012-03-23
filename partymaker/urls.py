@@ -8,7 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
 
     (r'^$', main.views.index),
-    (r'^index.html$', main.views.index),
+    (r'^index$', main.views.index),
     (r'^user/', include('partymaker.main.urls')),
     (r'^p/', include('partymaker.profiles.urls')),
 

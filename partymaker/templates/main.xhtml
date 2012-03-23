@@ -8,13 +8,13 @@
         <link rel="stylesheet" href="/static/blueprint/ie.css" type="text/css" media="screen, projection"/>
     <![endif]-->
     <link rel="stylesheet" href="/static/custom.css" type="text/css"/>
-    <title>Partymaker!</title>
+    <title>{% block htmltitle %}Partymaker!{% endblock %}</title>
 </head>
 
 <body>
     <div class="container">
           <div class="span-24">
-              {% block title %}<h1>Welcome to PartyMaker</h1>{% endblock %}
+              <h1>{% block title %}Welcome to PartyMaker{% endblock %}</h1>
           </div>
     </div>
     <div class="span-4 prepend-2 append-2 border">
@@ -23,11 +23,12 @@
                 {% if user.is_authenticated %}
                     <li>Hallo, {{ user.username }}</li>
                     <li><a href="/p/{{user.username}}">Profil</a></li>
-                    <li><a href="user/logout.html">Logout</a></li>
+                    <li><a href="/user/logout">Logout</a></li>
                 {% else %}
-                    <li><a href="user/login.html">Login</a></li>
-                    <li><a href="user/registration.html">Registrieren</a></li>
+                    <li><a href="/user/login">Login</a></li>
+                    <li><a href="/user/registration">Registrieren</a></li>
                 {% endif %}
+                    <li><a href="/f/about/">Über uns</a></li>
             </ul>
         {% endblock %}
     </div>

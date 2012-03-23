@@ -13,7 +13,7 @@ from main.forms import RegistrationForm
 from main.models import UserProfile
 
 def index(request):
-    return render_to_response("index.xhtml")
+    return render_to_response("index.xhtml",  context_instance=RequestContext(request))
 
 def register(request):
     if request.method == 'POST':
@@ -39,8 +39,8 @@ def register(request):
                 Link um deinen Account zu aktivieren.\n http://localhost:8000/validate/%s\n mfG das PartyMaker Team" % (
                     username, activation_key)
             email_address=settings.REGISTRATION_EMAIL_ADDRESS
-            send_mail(email_subject, email_text, "thehanse@gmail.com", [email])
-            return HttpResponseRedirect('thanks.html')
+            send_mail(email_subject, email_text, email_address, [email])
+            return HttpResponseRedirect('thanks')
     else: 
          form = RegistrationForm()
     return render_to_response('register.xhtml', {'form':form},  context_instance=RequestContext(request)) 
